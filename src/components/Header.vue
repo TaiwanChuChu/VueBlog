@@ -15,6 +15,15 @@
 		  <b-nav-item>
 		  	<router-link to="/about">About</router-link>
 		  </b-nav-item>
+		  <b-nav-item to="/admin">
+	   		Admin
+		  </b-nav-item>
+		  <b-nav-item to="/login">
+	   		Login
+		  </b-nav-item>
+	      <b-nav-item to="/article">
+	   		Article
+		  </b-nav-item>
           <b-form-input size="sm" class="mr-sm-2" placeholder="Search"></b-form-input>
           <b-button size="sm" class="my-2 my-sm-0" type="submit">Search</b-button>
         </b-nav-form>
