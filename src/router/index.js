@@ -6,6 +6,7 @@ import Login from '@/views/Login'
 import Article from '@/views/Article'
 import Admin from '@/views/Admin'
 import Admin_Add from '@/views/Admin/Add'
+import NotFound404 from '@/views/NotFound404'
 
 Vue.use(VueRouter)
 
@@ -26,7 +27,7 @@ Vue.use(VueRouter)
     component: Login,
   },
   {
-    path: '/article',
+    path: '/article/:id',
     name: 'Article',
     component: Article,
   },
@@ -41,6 +42,11 @@ Vue.use(VueRouter)
         component: Admin_Add,
       }
     ]
+  },
+  {
+    path: '*',
+    name: 'NotFound404',
+    component: NotFound404,
   }
 ]
 

@@ -1,6 +1,7 @@
 <template>
 	<div>
   <b-navbar toggleable="lg" type="dark" variant="dark">
+  	<b-icon icon="person-fill"></b-icon> Account
     <b-navbar-brand href="#">LwjCoding</b-navbar-brand>
 
     <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
@@ -9,11 +10,11 @@
       <!-- Right aligned nav items -->
       <b-navbar-nav class="ml-auto">
         <b-nav-form>
-		  <b-nav-item>
-		  	<router-link to="/">Home</router-link>
+		  <b-nav-item to="/">
+		  	Home
 		  </b-nav-item>
-		  <b-nav-item>
-		  	<router-link to="/about">About</router-link>
+		  <b-nav-item to="/about">
+		  	About
 		  </b-nav-item>
 		  <b-nav-item to="/admin">
 	   		Admin

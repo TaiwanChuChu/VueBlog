@@ -2,7 +2,7 @@
 	<div id="wrap">
 		<article v-for="art in articles">
 			<header>
-				<h1>{{ art.title }}</h1>
+				<h1 @click="routeToArticle(art.id)">{{ art.title }}</h1>
 				<i>{{ art.date | fmDate }}</i>
 			</header>
 			<section>
@@ -57,6 +57,11 @@
 		data() {
 			return {
 				articles: null,
+			}
+		},
+		methods: {
+			routeToArticle: function(id) {
+				this.$router.push({name: 'Article', params: {id: id}});
 			}
 		},
 

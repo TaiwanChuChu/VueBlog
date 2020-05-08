@@ -1,6 +1,7 @@
 <template>
   <div id="app">
     <Header />
+    <!-- <Sidebar /> -->
 
     <router-view />
 
@@ -10,6 +11,7 @@
 <script>
   // import HelloWorld from '@/components/HelloWorld.vue';
   import Header from '@/components/Header.vue';
+  import Sidebar from '@/views/Sidebar.vue';
 
   export default {
     data() {
@@ -18,7 +20,8 @@
       }
     },
     components: {
-      Header
+      Header,
+      Sidebar,
     }
   }
 
