@@ -1,13 +1,37 @@
 <template>
-  <div>
-    <b-sidebar id="sidebar-1" title="Sidebar" visible="true">
-      <div class="px-3 py-2">
-        <p>
-          Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis
-          in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
-        </p>
-        <b-img src="https://picsum.photos/500/500/?image=54" fluid thumbnail></b-img>
-      </div>
-    </b-sidebar>
-  </div>
+    <div id="sidebar">
+        <h2>最新文章</h2>
+        <hr>
+        <ul>
+            <li v-for="(art, index) in articles" :key="index" @click="routerToArticle(art.id)">
+                {{ art.title }}
+            </li>
+        </ul>
+    </div>
 </template>
+<script>
+import axios from 'axios';
+
+export default {
+    name: 'Sidebar',
+    mounted() {
+        const api = 'https://us-central1-expressapi-8c039.cloudfunctions.net/app/article';
+        axios.get(api).then(result => {
+            this.articles = result.data.data;
+        });
+    },
+
+    data() {
+        return {
+            articles: null,
+        }
+    },
+
+    methods: {
+        routerToArticle: function(id) {
+            console.log(id);
+            this.$router.push({ name: 'Article', params: { id: id } });
+        }
+    }
+}
+</script>
