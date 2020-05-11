@@ -10,27 +10,25 @@
     </div>
 </template>
 <script>
-import axios from 'axios';
+import { mapState } from 'vuex';
 
 export default {
     name: 'Sidebar',
-    mounted() {
-        const api = 'https://us-central1-expressapi-8c039.cloudfunctions.net/app/article';
-        axios.get(api).then(result => {
-            this.articles = result.data.data;
-        });
+    
+    computed: {
+    	...mapState(['articles']),
     },
 
     data() {
         return {
-            articles: null,
+
         }
     },
 
     methods: {
         routerToArticle: function(id) {
-            console.log(id);
-            this.$router.push({ name: 'Article', params: { id: id } });
+        	// 當重倒同一個path時，會出現錯誤；故使用catch將錯誤訊息置入err變數中，使其不會再console出現error
+            this.$router.push({ name: 'Article', params: { id: id } }).catch(err => {console.log(err);});
         }
     }
 }
