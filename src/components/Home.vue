@@ -1,6 +1,6 @@
 <template>
     <div id="wrap">
-        <article v-for="art in articles">
+        <article v-for="art in filterByArtID">
             <header>
                 <h1 @click="routeToArticle(art.id)">{{ art.title }}</h1>
                 <i>{{ art.date | fmDate }}</i>
@@ -45,7 +45,7 @@ article {
 </style>
 <script>
 import axios from 'axios';
-import { mapState } from 'vuex';
+import { mapState, mapActions, mapGetters } from 'vuex';
 
 export default {
     name: 'Home',
@@ -59,11 +59,12 @@ export default {
     },
     computed: {
         ...mapState(['articles']),
+		...mapGetters(['filterByArtID']),
     },
-    methods: {
+    methods: {    	
         routeToArticle: function(id) {
             this.$router.push({ name: 'Article', params: { id: id } });
-        }
+        },
     },
 
     filters: {
