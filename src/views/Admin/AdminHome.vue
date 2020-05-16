@@ -1,19 +1,40 @@
 <template>
-    <div>
-        <h1>Admin-Home</h1>
-        <pre>{{ articles }}</pre>
-        <b-button @click="fetchArticles">Dispatch!</b-button>
-    </div>
+  <div>
+    <h1>AdminHome</h1>
+  </div>
 </template>
+
 <script>
-import { mapState, mapActions } from 'vuex';
+import { mapState, mapAction } from 'vuex';
 
 export default {
-    methods: {
-        ...mapActions(['fetchArticles']),
-    },
-    computed: {
-        ...mapState(['account', 'articles']),
-    }
+    // data() {
+    //     return {
+    //         form: {
+    //             title: '',
+    //             date: '',
+    //             contents: '',
+    //         },
+    //         show: true
+    //     }
+    // },
+    // methods: {
+    //     onSubmit(evt) {
+    //         evt.preventDefault();
+    //         alert(JSON.stringify(this.form));
+    //     },
+    //     onReset(evt) {
+    //         evt.preventDefault();
+    //         // Reset our form values
+    //         this.form.title = '';
+    //         this.form.date = '';
+    //         this.form.contents = '';
+    //         // Trick to reset/clear native browser form validation state
+    //         this.show = false
+    //         this.$nextTick(() => {
+    //             this.show = true;
+    //         });
+    //     }
+    // }
 }
 </script>

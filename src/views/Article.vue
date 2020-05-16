@@ -1,9 +1,11 @@
 <template>
     <article v-if="articles.length">
         <h2>{{ filterById.title }}</h2>
-        <i>{{ filterById.date }}</i>
+        <p>
+            <i>{{ filterById.date }}</i>
+        </p>
         <span v-html="filterById.content"></span>
-        <p>{{ articles }}</p>
+        <!-- <p>{{ articles }}</p> -->
     </article>
 </template>
 <script>

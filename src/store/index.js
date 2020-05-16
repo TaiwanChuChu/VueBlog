@@ -17,6 +17,11 @@ export default new Vuex.Store({
 
         setSearchArt: (state, payload) => {
             state.searchArt = payload;
+        },
+
+        addArt: (state, payload) => {
+            console.log(payload);
+            state.articles.push(payload);
         }
     },
     actions: {
@@ -29,7 +34,12 @@ export default new Vuex.Store({
 
         setSearchArt: ({ commit }, payload) => {
             commit('setSearchArt', payload);
-        }
+        },
+
+        addArt: ({ commit }, payload) => {
+            console.log('actions!');
+            commit('addArt', payload);
+        },
     },
     getters: {
         filterByArtID: (state) => {
