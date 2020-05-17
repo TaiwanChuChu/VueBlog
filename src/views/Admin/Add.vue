@@ -50,7 +50,7 @@ export default {
     data() {
         return {
             form: {
-            	id: Math.floor(Math.random(1)*100),
+            	id: this.$route.params.id === '' ? Math.floor(Math.random(1)*100) : this.$route.params.id,
                 title: '',
                 date: null,
                 content: '',
@@ -60,6 +60,10 @@ export default {
     },
     computed: {
     	...mapState(['articles']),
+    	
+    	form: function(state) {
+    		return this.form = articles.articles[this.id];
+    	},
     },
     methods: {
     	...mapActions(['addArt']),

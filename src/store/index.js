@@ -49,6 +49,15 @@ export default new Vuex.Store({
                 }
                 return state.articles.filter(art => {return art.title.indexOf(state.searchArt) > -1});
             }
-        }
+        },
+        
+        // findTgArtByID: (state) => {
+        //     if(state.articles.length) {
+        //         if(state.searchArt === '') {
+        //             return state.articles;
+        //         }
+        //     return state.articles.filter(art => {return art.title.indexOf(state.searchArt) > -1});
+        //     }
+        // },
     }
 })

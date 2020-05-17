@@ -58,7 +58,6 @@ export default {
         }
     },
     computed: {
-        ...mapState(['articles']),
 		...mapGetters(['filterByArtID']),
     },
     methods: {    	
