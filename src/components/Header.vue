@@ -60,11 +60,6 @@
 				}
 			}
 		},
-
-		computed: {
-			...mapState(['searchArt']),
-		}
-
 	}
 </script>
 <style lang="scss" scoped>

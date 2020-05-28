@@ -38,35 +38,39 @@
       <b-button type="reset" variant="danger">Reset</b-button>
     </b-form>
     <b-card class="mt-3" header="Form Data Result">
-      <pre class="m-0">{{ articles }}</pre>
+      <pre class="m-0">{{ form }}</pre>
     </b-card>
   </div>
 </template>
 
 <script>
-import { mapState, mapActions } from 'vuex';
+import { mapState, mapActions, mapGetters } from 'vuex';
 
 export default {
     data() {
         return {
-            form: {
-            	id: Math.floor(Math.random(1)*100),
-                title: '',
-                date: null,
-                content: '',
-            },
+            // form: {
+            // 	id: this.$route.params.id,
+            //     title: '',
+            //     date: null,
+            //     content: '',
+            // },
             show: true,
         }
     },
     computed: {
-    	...mapState(['articles']),
+    	...mapGetters(['findTgArtByID']),
+    	
+    	form: function() {
+    		return this.findTgArtByID(this.$route.params.id);
+    	},
     },
     methods: {
-    	...mapActions(['addArt']),
+    	...mapActions(['updateArt']),
 
         onSubmit(evt) {
             evt.preventDefault();
-            this.addArt(this.form);
+            this.updateArt(this.form);
         },
         onReset(evt) {
             evt.preventDefault();

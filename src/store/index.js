@@ -20,8 +20,14 @@ export default new Vuex.Store({
         },
 
         addArt: (state, payload) => {
-            console.log(payload);
             state.articles.push(payload);
+        },
+
+        updateArt: (state, payload) => {
+            if(state.articles[payload.id] === undefined) {
+                return false;
+            }
+            state.articles[payload.id] = payload;
         }
     },
     actions: {
@@ -37,8 +43,12 @@ export default new Vuex.Store({
         },
 
         addArt: ({ commit }, payload) => {
-            console.log('actions!');
             commit('addArt', payload);
+        },
+
+        updateArt: ({ commit }, payload) => {
+            console.log('updateArt!');
+            commit('updateArt', payload);
         },
     },
     getters: {
@@ -51,13 +61,10 @@ export default new Vuex.Store({
             }
         },
         
-        // findTgArtByID: (state) => {
-        //     if(state.articles.length) {
-        //         if(state.searchArt === '') {
-        //             return state.articles;
-        //         }
-        //     return state.articles.filter(art => {return art.title.indexOf(state.searchArt) > -1});
-        //     }
-        // },
+        findTgArtByID: (state) => (id) => {
+            if(state.articles.length) {
+                return state.articles.filter(art => {return art.id === id});
+            }
+        },
     }
 })

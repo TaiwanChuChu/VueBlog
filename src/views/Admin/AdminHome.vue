@@ -54,7 +54,7 @@ import { mapState, mapAction } from 'vuex';
         },
         methods: {
             editArt: function(id) {
-                this.$router.push({ name: 'Article', params: { id: id } }).catch(err => {console.log(err);});
+                this.$router.push({ name: 'Admin_Edit', params: { id: id } }).catch(err => {console.log(err);});
             },
 
             delArt: function(id) {
